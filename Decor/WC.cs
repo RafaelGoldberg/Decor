@@ -8,5 +8,6 @@ namespace Decor
     public static class WC
     {
         public static string ImagePath = @"\Images\productImages";
+        public static string SessionCart = "ShoppingCartSession";
     }
 }
