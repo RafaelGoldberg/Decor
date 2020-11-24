@@ -40,10 +40,20 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
+                        <label asp-for="Product.ShortDescription"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product.ShortDescription" class="form-control" />
+                        <span asp-validation-for="Product.ShortDescription" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
                         <label asp-for="Product.Description"></label>
                     </div>
                     <div class="col-8">
-                        <textarea asp-for="Product.Description" class="form-control summernote" ></textarea>
+                        <textarea asp-for="Product.Description" class="form-control summernote"></textarea>
                         <span asp-validation-for="Product.Description" class="text-danger"></span>
                     </div>
                 </div>
@@ -70,11 +80,25 @@
                     </div>
 
                 </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Product.ApplicationTypeId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Product.ApplicationTypeId" asp-items="@Model.ApplicationTypeSelectList" class="form-control">
+                            <option selected disabled>-- Select Application Type</option>
+                        </select>
+                        <span asp-validation-for="Product.ApplicationTypeId" class="text-danger"></span>
+                    </div>
+
+                </div>
+
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                            @if ( Model.Product.Id != 0)
+                            @if (Model.Product.Id != 0)
                             {
                                 //Update
                                 <input type="submit" class="btn btn-info w-100" value="Update" />
@@ -93,7 +117,11 @@
                 </div>
             </div>
             <div class="col-4">
-                @* Keep this empty *@
+                @if (!String.IsNullOrEmpty(Model.Product.Image))
+                {
+                    <img src="@WC.ImagePath\@Model.Product.Image" class="w-100" style="border:1px solid #bbb; border-radius:5px; " />
+                }
+
             </div>
         </div>
     </div>
