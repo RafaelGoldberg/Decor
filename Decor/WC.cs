@@ -7,7 +7,14 @@ namespace Decor
 {
     public static class WC
     {
-        public static string ImagePath = @"\Images\productImages";
-        public static string SessionCart = "ShoppingCartSession";
+        public const  string ImagePath = @"\Images\productImages";
+        public const  string SessionCart = "ShoppingCartSession";
+
+        public const    string AdminRole = "Admin";
+        public const    string CustomerRole = "Customer";
+
+        public const  string EmailAdmin = "rafaelgoldberg01@gmail.com";
+
+
     }
 }
